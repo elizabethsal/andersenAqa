@@ -3,20 +3,34 @@ public class Main {
 
 
     public static void main(String[] args) {
-        newEmployee();
-    }
+        Cat[] cats = new Cat[6];
+        Dog[] dogs = new Dog[9];
+        Bowl bowlOfFood = new Bowl(80);
 
-    public static void newEmployee() {
-        Employee[] employees = new Employee[5];
-        String[] names = {"A", "Q", "C", "V", "P"};
-        String[] positions = {"QA", "PM", "HR", "Developer", "Staff"};
+        String[] names = {"Vaf", "Basic", "Fluff", "SomeKindOfMagic", "Biscuit", "Oreo", "Jay-Z", "Сurie", "Brock", "Rockie", "Dust", "Hush", "Regular", "Extra", "Orange", "Null"};
+        for (int i = 0; i < cats.length; i++) {
 
-        for (int i = 0; i < employees.length; i++) {
-            Employee employee = new Employee(names[i], positions[i], getRandomNumber(87466, 98956) + "@gmail.com",
-                    "+" + getRandomNumber(879541, 98796519), getRandomNumber(600, 3000), getRandomNumber(20, 40));
-            employees[i] = employee;
-            System.out.println(employee);
+            Cat cat = new Cat(names[getRandomNumber(0, names.length - 1)], getRandomNumber(15, 20));
+            cats[i] = cat;
+            cat.run(getRandomNumber(0, 200));
+            cat.swim(5);
         }
+        for (int i = 0; i < dogs.length; i++) {
+            Dog dog = new Dog(names[getRandomNumber(0, names.length - 1)]);
+
+            dogs[i] = dog;
+            dog.run(getRandomNumber(0, 500));
+            dog.swim(getRandomNumber(0, 10));
+        }
+
+        System.out.println("Count of cats: " + cats.length);
+        System.out.println("Count of dogs: " + dogs.length);
+        for (int i = 0; i < cats.length; i++) {
+            bowlOfFood.food = cats[i].eat(bowlOfFood.food);
+
+        }
+        System.out.println("Food remain: " + bowlOfFood.food);
+
     }
 
     public static int getRandomNumber(int min, int max) {
