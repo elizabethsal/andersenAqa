@@ -1,28 +1,42 @@
-
 public class Main {
-
-
     public static void main(String[] args) {
-        newEmployee();
-    }
+        String[][] arr = new String[][]{{"K", "h", "tr", ";"}, {"p", "L", "I", ")"},
+                {"f", "q", "e", "*"}, {"Q", "R", "T", "+"}};
+        try {
+            try {
+                int res = approach(arr);
+                System.out.println(res);
+            } catch (MyArraySizeException e) {
+                System.out.println("Array size is exceeded");
 
-    public static void newEmployee() {
-        Employee[] employees = new Employee[5];
-        String[] names = {"A", "Q", "C", "V", "P"};
-        String[] positions = {"QA", "PM", "HR", "Developer", "Staff"};
+            }
+        } catch (MyArrayDataException e) {
+            System.out.println("Invalid value");
+            System.out.println("Invalid value in: " + e.i + e.j);
 
-        for (int i = 0; i < employees.length; i++) {
-            Employee employee = new Employee(names[i], positions[i], getRandomNumber(87466, 98956) + "@gmail.com",
-                    "+" + getRandomNumber(879541, 98796519), getRandomNumber(600, 3000), getRandomNumber(20, 40));
-            employees[i] = employee;
-            System.out.println(employee);
+        } finally {
+            System.out.println("Everything is all right");
         }
     }
 
-    public static int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
+
+    public static int approach(String[][] arr) throws MyArraySizeException, MyArrayDataException {
+        int count = 0;
+        if (arr.length != 4) {
+            throw new MyArraySizeException();
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length != 4) {
+                throw new MyArraySizeException();
+            }
+            for (int j = 0; j < arr.length; j++) {
+                try {
+                    count = count + Integer.parseInt(arr[i][j]);
+                } catch (NumberFormatException e) {
+                    throw new MyArrayDataException(i, j);
+                }
+            }
+        }
+        return count;
     }
-
-
 }
-
