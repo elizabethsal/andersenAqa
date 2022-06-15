@@ -31,6 +31,7 @@ public class Main {
         }
         System.out.println("Food remain: " + bowlOfFood.food);
         System.out.println(new Payment());
+        System.out.println(new Park());
 
     }
 

@@ -12,8 +12,8 @@ public class Payment {
     @Override
     public String toString() {
         String rv = "";
-        for(int i = 0; i<receipt.size()-1; i++){
-            rv += receipt.get(i)+"\n";
+        for (int i = 0; i < receipt.size() - 1; i++) {
+            rv += receipt.get(i) + "\n";
         }
         return rv;
     }
