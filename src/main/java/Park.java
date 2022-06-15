@@ -38,7 +38,7 @@ public class Park {
 
         @Override
         public String toString() {
-            return "Name of Ride: " + name + " cost: " + cost + " danger: " + danger + " working hour" + time;
+            return "Name of Ride: " + name + " cost: " + cost + "$ " + " danger: " + danger + " working hour" + time;
         }
     }
 
